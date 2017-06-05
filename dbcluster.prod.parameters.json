@@ -1,0 +1,103 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "centralus"
+    },
+    "dbVMAdmin": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/SUBSCRIPTIONID/resourceGroups/common-rg/providers/Microsoft.KeyVault/vaults/VAULTNAME"
+        },
+        "secretName": "dbvmadminuser"
+      }
+    },
+    "dbsshKeyData": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/SUBSCRIPTIONID/resourceGroups/common-rg/providers/Microsoft.KeyVault/vaults/VAULTNAME"
+        },
+        "secretName": "dbsshkey"
+      }
+    },
+    "scriptDBUriPath": {
+      "value": "https://STORAGEACCOUNT.blob.core.windows.net/SCRIPTS"
+    },
+    "scriptDBFile": {
+      "value": "db_setup_script.sh"
+    },
+    "scriptStorageResourceGroup": {
+      "value": "common"
+    },
+    "scriptStorageAccount": {
+      "value": "commonfilestorage"
+    },
+    "dbPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/SUBSCRIPTIONID/resourceGroups/common-rg/providers/Microsoft.KeyVault/vaults/VAULTNAME"
+        },
+        "secretName": "mysqlpassword"
+      }
+    },  
+     "dbMaintPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/SUBSCRIPTIONID/resourceGroups/common-rg/providers/Microsoft.KeyVault/vaults/VAULTNAME"
+        },
+        "secretName": "mysqlmaintpassword"
+      }
+    },
+    "db": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/SUBSCRIPTIOTNID/resourceGroups/common-rg/providers/Microsoft.KeyVault/vaults/VAULTNAME"
+        },
+        "secretName": "dbName"
+      }
+    },
+    "dbUser": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/SUBSCRIPTIOTNID/resourceGroups/common-rg/providers/Microsoft.KeyVault/vaults/VAULTNAME"
+        },
+        "secretName": "dbUser"
+      }
+    },
+    "dbUserPass": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/SUBSCRIPTIOTNID/resourceGroups/common-rg/providers/Microsoft.KeyVault/vaults/VAULTNAME"
+        },
+        "secretName": "dbUserPass"
+      }
+    },
+    "vnetname": {
+      "value": "vnet"
+    },
+    "subnetname": {
+      "value": "subnetdb"
+    },
+    "vaultName": {
+      "value": "myKeyVault"
+    },
+    "vaultResourceGroup": {
+      "value": "vault-rg"
+    },
+    "ipaddressrange": {
+
+      "value": "10.1.1.0/29"
+    },
+    "dbcasecretUrlWithVersion": {
+      "value": "https://VAULTNAME.vault.azure.net:443/secrets/SECRETNAME/VERSION"
+    },
+
+    "dbkeysecretUrlWithVersion": {
+      "value": "https://VAULTNAME.vault.azure.net:443/secrets/SECRETNAME/VERSION"
+    },
+    "dbclientsecretUrlWithVersion": {
+      "value": "https://VAULTNAME.vault.azure.net:443/secrets/SECRETNAME/VERSION"
+    }
+  }
+}
